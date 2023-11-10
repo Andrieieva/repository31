@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./index.css" rel="stylesheet" />
+    <title>My Web Page</title>
+  </head>
+  <body>
+      <h1>Hello, world!</h1>
+      <p><img border="0" align="absmiddle" src="https://cdn.shopify.com/s/files/1/0845/9445/8925/files/MyPhoto.jpg?v=1699579241" width="15%" height="15%"></p>
+      <p><b>Vote for my photo </b></p>
+      <p><button class="like-button" id="like-button" style="background-color: #00FF00; color: #191970; ">Like</button> Total Likes: <span id="like-count">0</span></p>
+      <script>
+          let likeCount = 0;
+          const likeButton = document.getElementById("like-button");
+          const likeCountElement = document.getElementById("like-count");
+
+          likeButton.addEventListener("click", () => {
+              likeCount++;
+              likeCountElement.textContent = likeCount;
+
+              fetch('save_like.php', {
+                  method: 'POST',
+                  body: JSON.stringify({ likes: likeCount }),
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+          });
+      </script>
+      <p>
+          <marquee behavior="alternate" direction="left">
+              <div>
+                  <!DOCTYPE html>
+                  <html>
+
+                  <head>
+                      <title>titile</title>
+                      <meta charset="utf-8">
+                      <style>
+                          img.rot {
+                              animation: 6s ease-in-out 0s normal none infinite running rot;
+                              -webkit-animation: 5s ease-in-out 0s normal none infinite running rot;
+                              animation-timing-function: steps(64, end);
+                              width: 270px;
+                          }
+
+                          @keyframes rot {
+                              0% {
+                                  transform: rotate(360deg);
+                              }
+
+                              100% {
+                                  transform: rotate(0deg);
+                              }
+                          }
+
+                          @-webkit-keyframes rot {
+                              0% {
+                                  transform: rotate(0deg);
+                              }
+
+                              100% {
+                                  transform: rotate(360deg);
+                              }
+                          }
+                      </style>
+                      <script>
+                          $(function () {
+
+                          });
+                      </script>
+                  </head>
+
+                  <body>
+
+                      <img class="rot" src="https://cdn.shopify.com/s/files/1/0845/9445/8925/files/Aboutmyself.png?v=1699579129" width="35%" height="35%">
+
+                  </body>
+
+              </html>
+          </div>
+      </marquee>
+  </p>
+  </div>
+
+  <div class="login-form">
+      <label for="username">Username:</label>
+      <input id="username" name="username" type="text" />
+      <label for="password">Password:</label>
+      <input id="password" name="password" type="password" />
+      <div class="display: flex; flex-direction: row; gap: 10px; justify-content: space-around;">
+          <button type="submit">Log in</button>
+          <button type="button">Register</button>
+      </div>
+  </div>
+
+
+  <div class="register-form">
+      <label for="username">Username:</label>
+      <input id="username" name="username" type="text" />
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="text" />
+      <label for="password">Password:</label>
+      <input id="password" name="password" type="password" />
+      <div class="form-buttons">
+          <button type="submit">Log in</button>
+          <button type="button">Register</button>
+      </div>
+  </div>
+  </body>
+</html>
